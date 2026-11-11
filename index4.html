@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHƯƠNG 2: TRẢI NGHIỆM “TỈNH CƠN MỘNG” TRONG THIỀN HỌC THÍCH THANH TỪ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Nền hiệu ứng sao vũ trụ */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #a5b4fc, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #c084fc, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 180px 220px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 250px 120px, #38bdf8, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 320px 280px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 350px 350px;
+            opacity: 0.65;
+            z-index: 0;
+        }
+
+        /* Quầng sáng tinh vân (Nebula effect) */
+        .nebula {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.18) 0%, rgba(59, 130, 246, 0.12) 40%, rgba(0, 0, 0, 0) 70%);
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Khung kính mờ Glassmorphism */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 950px;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                        0 0 30px rgba(168, 85, 247, 0.15);
+        }
+
+        h1 {
+            font-size: 1.55rem;
+            color: #c084fc;
+            text-align: center;
+            margin-bottom: 36px;
+            text-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+            border-bottom: 1px solid rgba(192, 132, 252, 0.2);
+            padding-bottom: 20px;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: #38bdf8;
+            margin-top: 36px;
+            margin-bottom: 20px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        h3 {
+            font-size: 1.08rem;
+            color: #f1f5f9;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 1.02rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #cbd5e1;
+        }
+
+        ul {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+
+        li {
+            line-height: 1.7;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        /* Khung thơ Trích kệ */
+        .poem-quote {
+            background: rgba(30, 41, 59, 0.6);
+            border-left: 4px solid #c084fc;
+            border-right: 1px solid rgba(192, 132, 252, 0.2);
+            border-top: 1px solid rgba(192, 132, 252, 0.2);
+            border-bottom: 1px solid rgba(192, 132, 252, 0.2);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: #f1f5f9;
+            line-height: 1.9;
+            text-align: center;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sơ đồ tiến trình / Cơ chế */
+        .diagram-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 28px 0;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .diagram-title {
+            text-align: center;
+            font-weight: bold;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+        }
+
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .diagram-box {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.25);
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .diagram-box-title {
+            color: #c084fc;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .diagram-box-sub {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* Bảng so sánh */
+        .table-container {
+            overflow-x: auto;
+            margin: 32px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: rgba(30, 41, 59, 0.9);
+            color: #38bdf8;
+            padding: 16px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            vertical-align: top;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        tr:hover {
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        /* Phần Chú thích Footnotes */
+        .footnotes-section {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .footnotes-title {
+            font-size: 1.1rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .footnotes-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footnotes-list li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #94a3b8;
+            margin-bottom: 12px;
+            padding-left: 32px;
+            position: relative;
+            text-align: justify;
+        }
+
+        .footnotes-list li::before {
+            content: attr(data-number);
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px;
+            }
+            .diagram-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nebula"></div>
+    <div class="container">
+        <h1>CHƯƠNG 2: TRẢI NGHIỆM “TỈNH CƠN MỘNG” TRONG THIỀN HỌC THÍCH THANH TỪ</h1>
+
+        <!-- 2.1 -->
+        <h2>2.1. Cơn Mộng Sinh Tử: Thân Uẩn, Tâm Thức Biến Dịch Và Thế Giới Duyên Trần</h2>
+        <p>
+            Trong hệ thống Thiền học Trúc Lâm Yên Tử do Thiền sư Thích Thanh Từ khôi phục và xiển dương thời hiện đại, toàn bộ cấu trúc khổ đau và sự bám chấp hiện sinh của con người được soi chiếu qua hình tượng “Mộng” [16]. Bài kệ “Mộng” (sáng tác tại Thiền viện Chân Không, tháng 7 năm 1980) mở đầu bằng sự giải phẫu hiện tượng luận vô cùng sắc bén về ba phạm trù cấu thành trải nghiệm con người: Thân, Tâm và Thế giới [16].
+        </p>
+
+        <div class="poem-quote">
+            “Gá thân mộng<br>
+            Dạo cảnh mộng<br>
+            Mộng tan rồi<br>
+            Cười vỡ mộng<br>
+            Ghi lời mộng<br>
+            Nhắn khách mộng<br>
+            Biết được mộng<br>
+            Tỉnh cơn mộng.”
+        </div>
+
+        <!-- Sơ đồ Cấu trúc Hiện tượng Cơn mộng Sinh tử -->
+        <div class="diagram-card">
+            <div class="diagram-title">CẤU TRÚC HIỆN TƯỢNG CƠN MỘNG SINH TỬ</div>
+            <div class="diagram-grid">
+                <div class="diagram-box">
+                    <div class="diagram-box-title">THÂN MỘNG & TÂM MỘNG</div>
+                    <p class="diagram-box-sub">THÂN MỘNG (Gá thân mộng) ➔ Ngũ uẩn duyên sinh, Tứ đại gá mượn tạm thời.<br>TÂM MỘNG (Vọng niệm) ➔ Suy nghĩ, cảm xúc biến dịch từng sát na.</p>
+                </div>
+                <div class="diagram-box">
+                    <div class="diagram-box-title">CẢNH MỘNG & LẬU HOẶC</div>
+                    <p class="diagram-box-sub">CẢNH MỘNG (Dạo cảnh mộng) ➔ Cõi trần biến thiên, vinh nhược được mất.<br>➔ TẬP KHỞI LẬU HOẶC VÀ TÙY MIÊN (Avidyā che lấp ➔ Vipallāsa bám chấp chấp thật)</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>a. Giải mã tam giác huyễn mộng: Thân mộng, Tâm mộng và Cảnh mộng</h3>
+        <p>
+            <strong>Thân mộng (“Gá thân mộng”):</strong> Động từ “Gá” trong câu kệ lột tả tính chất giả tạm của thân xác vật lý [16]. Thân ngũ uẩn (sắc, thọ, tưởng, hành, thức) do bốn đại (đất, nước, gió, lửa) duyên hợp gá mượn [17]. Thân xác ấy biến dịch liên tục từng sát na, không có tự tánh hằng tồn (Anātman) [16, 18]. Con người vì lầm tưởng thân gá mượn này là một Chân ngã cố định nên nảy sinh bao nỗi lo âu, sợ hãi trước tuổi già, bệnh tật và cái chết [16].
+        </p>
+        <p>
+            <strong>Tâm mộng (Tâm thức biến dịch):</strong> Là dòng chảy vọng niệm (suy nghĩ, cảm xúc, thương ghét, lo âu) liên tục khởi lên trong tâm thức [17]. Giống như những bóng bọt nước nổi lên rồi vỡ tan trên mặt nước mùa thu, các vọng niệm không có thực thể tự chủ nhưng lại cuốn phăng nhận thức con người vào những cơn bão cảm xúc.
+        </p>
+        <p>
+            <strong>Cảnh mộng (“Dạo cảnh mộng”):</strong> Môi trường cõi đời, hoàn cảnh sống và thế giới duyên trần bên ngoài (Cảnh) [16]. Mọi vinh nhược, thành bại, được mất đều do các duyên nương nhau sanh khởi rồi tan rã (Paṭiccasamuppāda) [18]. Cõi cảnh ấy vắng bóng tự tánh cố định (Śūnyatā), huyễn ảo như bóng trăng soi đáy nước hay hạt sương mai đầu ngọn cỏ [21].
+        </p>
+
+        <h3>b. Cội nguồn nhận thức luận: Phân định ranh giới giữa Avidyā và Vipallāsa</h3>
+        <p>
+            Dưới lăng kính Phật giáo Pāli và Thiền học Thích Thanh Từ, sự chìm đắm trong cơn mộng sinh tử xuất phát từ cơ chế nhận thức luận Nhân - Quả được phân định sắc nét [18]:
+        </p>
+        <p>
+            <strong>Vô minh (Avidyā):</strong> Được xác định là Mūla-kāraṇa—nguyên nhân gốc rễ ngầm rỉ che lấp Tuệ giác Bát-nhã, khiến tùy miên ngũ ngầm (Anusayā) và lậu hoặc (Āsava) khởi động ngầm bên dưới tâm thức [18, 19].
+        </p>
+        <p>
+            <strong>Điên đảo Vọng tưởng (Vipallāsa):</strong> Được xác định là Phala—kết quả sinh khởi trực tiếp làm biến dạng lăng kính nhận thức hiện tiền (nhìn vô thường cho là thường, nhìn vô ngã cho là ngã, nhìn khổ cho là lạc, nhìn bất tịnh cho là tịnh) [18].
+        </p>
+        <p>
+            <strong>Tránh sai lầm Hữu quả luận (Sātkāryavāda):</strong> Chú giải Nettipakaraṇa chỉ rõ: Nếu đồng nhất Vô minh và Điên đảo vọng tưởng làm một (như Vedānta hay Sāṃkhya), hệ thống sẽ rơi vào sai lầm Hữu quả luận (Sātkāryavāda)—học thuyết ngoại đạo coi "quả đã tiềm ẩn sẵn trong nhân" [18]. Thiền sư Thích Thanh Từ giữ vững sự phân định này để khẳng định: Thân, Tâm, Cảnh mộng bản chất chỉ là quả Vipallāsa biến dạng; công phu Phản quang tự kỷ sẽ can thiệp trực tiếp vào quả Vipallāsa để đoạn trừ tận gốc nhân Avidyā [17, 18].
+        </p>
+
+        <!-- 2.2 -->
+        <h2>2.2. “Biết” Là Chìa Khóa: Trải Nghiệm “Tỉnh Cơn Mộng” – Sự Bừng Tỉnh Hiện Sinh Và Ngộ Nhập Tánh Giác Bản Hữu</h2>
+        <p>
+            Trọng tâm của hành trình giải thoát trong Thiền học Thích Thanh Từ đọng lại ở chiếc chìa khóa nhận thức luận vô cùng trực tiếp: Tánh "Biết" chiếu soi [17].
+        </p>
+
+        <!-- Sơ đồ Tiến trình Quán chiếu Tánh giác Chiếu soi -->
+        <div class="diagram-card">
+            <div class="diagram-title">TIẾN TRÌNH QUÁN CHIẾU TÁNH GIÁC CHIẾU SOI</div>
+            <div class="diagram-grid">
+                <div class="diagram-box">
+                    <div class="diagram-box-title">MỘNG NIỆM KHỞI SINH</div>
+                    <p class="diagram-box-sub">(Thương, ghét, lo âu) ➔ PHẢN QUANG TỰ KỶ (Xoay lại nhìn tâm) ➔ TÁNH "BIẾT" CHIẾU SOI ("Biết được mộng")</p>
+                </div>
+                <div class="diagram-box">
+                    <div class="diagram-box-title">BÁM CHẤP CHẤP THẬT</div>
+                    <p class="diagram-box-sub">(Chìm đắm trong mộng) ➔ MỘNG NIỆM TỰ TAN ("Tỉnh cơn mộng" / Cười vỡ mộng)</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>a. Công phu Phản quang Tự kỷ qua hai câu kệ "Biết được mộng, Tỉnh cơn mộng"</h3>
+        <p>
+            <strong>"Biết được mộng" – Nhận diện Tánh "Biết" chiếu soi:</strong> Nhờ ứng dụng Yoniso manasikāra (Như lý tác ý), khi một suy nghĩ hay cơn bão cảm xúc khởi lên trong tâm, hành giả không đè nén, không tiêu diệt hay phân tích biện chứng [17, 19]. Hành giả chỉ cần xoay ánh sáng nhận thức quay lại nhìn tâm và nhận diện như thực: “Biết” nó là vọng, là mộng ("Biết được mộng") [17].
+        </p>
+        <p>
+            <strong>Cơ chế tự vỡ tan của mộng niệm ("Tỉnh cơn mộng"):</strong> Ngay khi Tánh "Biết" (Tánh giác bản hữu) chiếu soi, khoảng cách nhận thức giữa Chủ thể quan sát và Đối tượng mộng niệm được thiết lập [17]. Do không được tiếp tục cấp năng lượng bám chấp tâm lý (không theo), mộng niệm lập tức tự vỡ tan và rút lui ("Mộng tan rồi" ➔ "Tỉnh cơn mộng"), trả tâm thức về trạng thái vô ngã, rỗng rang hiện tiền [16, 17].
+        </p>
+
+        <h3>b. Bản chất hiện sinh của trải nghiệm "Tỉnh cơn mộng"</h3>
+        <p>
+            <strong>Không trốn chạy cõi đời:</strong> Bừng tỉnh hiện sinh trong Thiền học Thích Thanh Từ không phải là việc trốn chạy thực tại, chối bỏ thế gian hay đi tìm một cõi Siêu hình biệt lập xa xôi [20, 21].
+        </p>
+        <p>
+            <strong>Ngộ nhập Tánh giác sẵn có:</strong> Sự "Tỉnh cơn mộng" chính là việc trực nhận Tánh giác bản hữu (Phật tánh)—Tánh "Biết" hằng tĩnh, linh sáng, sẵn có nơi mỗi con người mà không do tạo tác, rèn nặn hay gia công tu luyện mà thành [17, 21]. Tánh giác ấy như mặt gương sáng chiếu soi muôn hình tướng: hình tướng trong gương có sinh có diệt, nhưng bản thể mặt gương sáng thì chưa từng bị lây nhiễm hay ô nhiễm bởi bất kỳ mộng cảnh nào [17].
+        </p>
+
+        <h3>c. Nụ cười ngộ nhập "Cười vỡ mộng"</h3>
+        <p>
+            Nụ cười Thiền ngộ nhập "Cười vỡ mộng" biểu trưng cho sự sụp đổ hoàn toàn của cả ngã chấp (nơi Thân mộng) và pháp chấp (nơi Cảnh mộng) [20]. Đó là nụ cười bừng tỉnh khi giải tỏa trọn vẹn gánh nặng tâm lý hiện sinh, nhận ra bao lâu nay mình tự trói buộc mình trong sợ hãi và lo âu vì mải đuổi theo những bóng hình huyễn ảo [20]. Nụ cười ấy trả con người về với sự tự do, an lạc và thong dong tuyệt đối ngay giữa lòng cõi thực [16, 20].
+        </p>
+
+        <!-- 2.3 Bảng Phân Tích -->
+        <h2>2.3. Sơ Đồ & Bảng Phân Tích Hiện Tượng Luận Trải Nghiệm "Tỉnh Cơn Mộng"</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Yếu tố Hiện sinh</th>
+                        <th>Cơn Mộng Sinh Tử (Thân, Tâm, Cảnh)</th>
+                        <th>Trải Nghiệm "Tỉnh Cơn Mộng" (Tánh Giác)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bản chất Hiện tồn</strong></td>
+                        <td>Duyên sinh, vô thường, Tánh Không (Śūnyatā) [16, 21].</td>
+                        <td>Vô vi, hằng tĩnh, hằng sáng, sẵn có (Anātman) [17, 21].</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cơ chế Nhận thức</strong></td>
+                        <td>Vô minh (Avidyā) ➔ Điên đảo Vipallāsa [18].</td>
+                        <td>Phản quang tự kỷ: "Biết vọng không theo" [17].</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trạng thái Tâm lý</strong></td>
+                        <td>Bám chấp chấp thật, lo âu hiện sinh [16, 18].</td>
+                        <td>Rỗng rang, chiếu soi, không bị lây nhiễm [17, 20].</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mỹ học Ngộ nhập</strong></td>
+                        <td>Chìm đắm trôi lăn trong sinh tử [18].</td>
+                        <td>Nụ cười tự tại hiện tiền: "Cười vỡ mộng" [20].</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Định hướng Nhập thế</strong></td>
+                        <td>Mê mờ trong danh lợi thế gian [18].</td>
+                        <td>Bồ-tát hạnh vô sở trụ: "Ghi lời mộng, Nhắn khách" [21].</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footnotes -->
+        <div class="footnotes-section">
+            <div class="footnotes-title">CHÚ THÍCH & TRÍCH DẪN NGUỒN (FOOTNOTES CHO CHƯƠNG 2 - SƯỜN BÀI 12)</div>
+            <ul class="footnotes-list">
+                <li data-number="16">Thiền sư Thích Thanh Từ (1980), Bài kệ "Mộng", khắc tại Thiền viện Chân Không, Bà Rịa - Vũng Tàu, sáng tác tháng 7/1980; đối chiếu bài giảng "3. Buổi học ngày 21-9-2026.mp3" & "3. Buổi 3 (ngày 31-3-2026).mp3".</li>
+                <li data-number="17">Thiền sư Thích Thanh Từ (1997), <em>Bí quyết tu thiền</em>, NXB Tôn Giáo, Hà Nội, tr. 35–48; đối chiếu bài giảng "1. Buổi 1 (18-01-2026).mp3" (Phân tích tông chỉ "Biết vọng không theo", công phu Phản quang tự kỷ và sự nhận diện Tánh "Biết" chiếu soi).</li>
+                <li data-number="18">Thích Chơn Thiện (1999), <em>Pāli Phật học Đại cương</em>, NXB Tôn Giáo, Hà Nội, tr. 84–96; đối chiếu bài giảng "4b. Buổi học ngày 23-9-2026.mp3" & "3. Buổi 3 (ngày 31-3-2026).mp3" (Phân định ranh giới giữa Vô minh Avidyā làm nhân gốc ngầm rỉ Mūla-kāraṇa và Điên đảo vọng tưởng Vipallāsa làm quả sinh khởi Phala; phê bình việc đồng nhất hai khái niệm dẫn đến Hữu quả luận Sātkāryavāda).</li>
+                <li data-number="19">Thích Minh Châu (dịch) (2012), <em>Kinh Trung Bộ (Majjhima Nikāya)</em>, Kinh Tất Cả Lậu Hoặc (Sabbāsava Sutta, số 2), NXB Tôn Giáo, Hà Nội; đối chiếu bài giảng "3. Buổi 3 (ngày 31-3-2026).mp3" & "1. Buổi 1 (18-01-2026).mp3" (Phương pháp đoạn trừ lậu hoặc nhờ Như lý tác ý - Yoniso manasikāra).</li>
+                <li data-number="20">Thiền sư Thích Thanh Từ (2005), <em>Thiền sư Việt Nam</em>, NXB Tôn Giáo, Hà Nội, tr. 112–118; đối chiếu bài giảng "3. Buổi học ngày 21-9-2026.mp3" (Ý nghĩa nụ cười ngộ nhập "Cười vỡ mộng"—sự sụp đổ của ngã chấp và pháp chấp).</li>
+                <li data-number="21">Thích Thanh Từ (giảng giải) (2008), <em>Kinh Kim Cang Bát Nhã Giảng Giải</em>, NXB Tôn Giáo, Hà Nội, tr. 210; đối chiếu bài giảng "3. Buổi học ngày 21-9-2026.mp3" & "3. Buổi 3 (ngày 31-3-2026).mp3" (Phân tích tinh thần Tánh Không Bát-nhã và hạnh nguyện Bồ-tát dấn thân vô sở trụ "Ghi lời mộng, Nhắn khách mộng").</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

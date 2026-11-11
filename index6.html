@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>III. KẾT BÀI & IV. TÀI LIỆU THAM KHẢO - SƯỜN BÀI 12</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Nền hiệu ứng sao vũ trụ */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #a5b4fc, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #c084fc, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 180px 220px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 250px 120px, #38bdf8, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 320px 280px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 350px 350px;
+            opacity: 0.65;
+            z-index: 0;
+        }
+
+        /* Quầng sáng tinh vân (Nebula effect) */
+        .nebula {
+            position: absolute;
+            width: 850px;
+            height: 850px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.18) 0%, rgba(59, 130, 246, 0.12) 40%, rgba(0, 0, 0, 0) 70%);
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Khung kính mờ Glassmorphism */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 950px;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                        0 0 30px rgba(168, 85, 247, 0.15);
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: #c084fc;
+            text-align: center;
+            margin-bottom: 36px;
+            text-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+            border-bottom: 1px solid rgba(192, 132, 252, 0.2);
+            padding-bottom: 20px;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: #38bdf8;
+            margin-top: 36px;
+            margin-bottom: 20px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        p {
+            font-size: 1.02rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #cbd5e1;
+        }
+
+        /* Bảng tổng hợp */
+        .table-container {
+            overflow-x: auto;
+            margin: 32px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: rgba(30, 41, 59, 0.9);
+            color: #38bdf8;
+            padding: 16px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            vertical-align: top;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        tr:hover {
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        /* Khung định hướng nhân sinh */
+        .insight-box {
+            background: rgba(30, 41, 59, 0.6);
+            border-left: 4px solid #c084fc;
+            border-radius: 0 12px 12px 0;
+            padding: 24px;
+            margin: 28px 0;
+            border-top: 1px solid rgba(192, 132, 252, 0.2);
+            border-right: 1px solid rgba(192, 132, 252, 0.2);
+            border-bottom: 1px solid rgba(192, 132, 252, 0.2);
+        }
+
+        /* Phần Chú thích Footnotes */
+        .footnotes-section {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .footnotes-title {
+            font-size: 1.1rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .footnotes-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footnotes-list li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #94a3b8;
+            margin-bottom: 12px;
+            padding-left: 32px;
+            position: relative;
+            text-align: justify;
+        }
+
+        .footnotes-list li::before {
+            content: attr(data-number);
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        /* Phần Tài liệu tham khảo */
+        .references-section {
+            margin-top: 56px;
+            padding-top: 32px;
+            border-top: 2px dashed rgba(192, 132, 252, 0.3);
+        }
+
+        .ref-category {
+            margin-bottom: 28px;
+        }
+
+        .ref-category-title {
+            font-size: 1.05rem;
+            color: #c084fc;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .ref-list {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .ref-list li {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nebula"></div>
+    <div class="container">
+        <h1>III. KẾT BÀI</h1>
+
+        <!-- 1 -->
+        <h2>1. Tổng kết Nội dung và Khái quát các Kết quả Nghiên cứu</h2>
+        <p>
+            Qua việc giải mã hiện tượng luận hiện sinh và bản thể luận so sánh (Comparative Existential Ontology), bài tiểu luận đã hoàn thành việc khám phá hành trình thức tỉnh tâm linh tối hậu của con người đằng sau cơn mộng sinh tử miên man thông qua hai đỉnh cao tư tưởng phương Đông: trải nghiệm ngộ nhập Mokṣa (Giải thoát) trong Advaita Vedānta của đại sư Śaṅkarācārya và trải nghiệm “Tỉnh cơn mộng” qua bài kệ “Mộng” của Thiền sư Thích Thanh Từ (kế thừa tinh thần Thiền học Trúc Lâm Yên Tử).
+        </p>
+        <p>
+            <strong>Thứ nhất, về trải nghiệm Mokṣa trong Advaita Vedānta:</strong> Śaṅkarācārya khẳng định giải thoát không phải là việc tìm kiếm hay gặt hái một đối tượng hoàn toàn mới mẻ từ bên ngoài, mà chính là sự bừng tỉnh nhận thức (Swarūpa-jñāna) khỏi cơn mộng Vô minh (Avidyā) và ảo ảnh Māyā. Bằng Trí tuệ Bất nhị (Jñāna), hành giả bóc tách năm lớp vỏ giả tạm (Pañca-kośa), đập tan cơ chế áp đặt điên đảo Adhyāsa để trực nhận Chân ngã Ātman vốn sẵn có chưa từng bị trói buộc và hoàn toàn đồng nhất với Bản thể Vũ trụ Nirguṇa Brahman qua mệnh đề <em>Aham Brahmāsmi</em> ("Ta chính là Brahman"). Trải nghiệm đó đem lại trạng thái Giải thoát đương sinh (Jīvanmukta)—xóa bỏ hoàn toàn nỗi sợ hãi hiện sinh, trả tâm thức về sự thanh tịnh vô vi bản hữu.
+        </p>
+        <p>
+            <strong>Thứ hai, về trải nghiệm “Tỉnh cơn mộng” trong Thiền học Thích Thanh Từ:</strong> Thiền học Trúc Lâm Yên Tử chỉ thẳng cơ chế thức tỉnh hiện sinh ngay nơi cuộc đời thông qua chiếc chìa khóa Tánh “Biết” chiếu soi. Toàn bộ Thân ngũ uẩn (Thân mộng), Tâm thức biến dịch (Tâm mộng) và Thế giới duyên trần (Cảnh mộng) đều mang bản chất Duyên khởi (Paṭiccasamuppāda), vắng bóng tự tánh hằng tồn (Anātman / Śūnyatā). Nhờ công phu Phản quang tự kỷ ("Biết vọng không theo"), ngay khi Tánh giác nhận diện khởi sáng ("Biết được mộng"), mộng niệm bám chấp lập tức tự vỡ tan ("Mộng tan rồi"), cất lên nụ “Cười vỡ mộng” ngộ nhập và đưa hành giả bừng tỉnh sống trọn vẹn với Tánh chân thật bản hữu ("Tỉnh cơn mộng").
+        </p>
+        <p>
+            <strong>Thứ ba, về ranh giới triết học hiện sinh luận cốt tủy giữa hai hệ thống:</strong> Cả hai đều khẳng định sự giải thoát là việc nhận ra Thực tại sẵn có, triệt tiêu gánh nặng lo âu hiện sinh và mang lại sự bình thản tự tại [22, 23, 25]. Tuy nhiên, nếu Mokṣa của Śaṅkarācārya dựa trên Đại ngã siêu hình (Ātman / Brahman) hòa nhập tuyệt đối, thì trải nghiệm "Tỉnh cơn mộng" của Thiền sư Thích Thanh Từ lại đứng vững trên tinh thần Tánh Không Vô ngã (Śūnyatā / Anātman) rỗng rang linh sáng của Phật giáo Đại thừa [22, 23, 25]. Nhận thức luận Thiền học phân định sắc nét ranh giới Nhân - Quả: Vô minh (Avidyā) là Nhân gốc ngầm rỉ (Mūla-kāraṇa) và Điên đảo Vọng tưởng (Vipallāsa) là Quả sinh khởi (Phala), tuyệt đối không đồng nhất hai khái niệm để tránh rơi vào sai lầm Hữu quả luận (Sātkāryavāda) của ngoại đạo [24, 25]. Vedānta hướng tới thái độ tịch tịnh chứng nhân (Sākṣin) đứng ngoài cõi đời; trong khi Thiền sư Thích Thanh Từ mở ra chiều kích Bồ-tát hạnh dấn thân vô sở trụ (“Ghi lời mộng, Nhắn khách mộng”, "Thuyền mộng qua sông mộng") ngay giữa lòng cõi thực [22, 23, 25].
+        </p>
+
+        <!-- Bảng tổng hợp -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tiêu chí</th>
+                        <th>Advaita Vedānta (Śaṅkarācārya)</th>
+                        <th>Thiền học Thích Thanh Từ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bản chất Thức tỉnh</strong></td>
+                        <td>Sự "nhận ra" (Swarūpa-jñāna) Bản thể</td>
+                        <td>Trực nhận Tánh giác bản hữu (Phật tánh)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cơ chế Chuyển hóa</strong></td>
+                        <td>Trí tuệ Jñāna bóc tách Adhyāsa & Māyā</td>
+                        <td>Phản quang tự kỷ: "Biết vọng không theo"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lập trường Bản thể</strong></td>
+                        <td>Đại ngã vĩnh cửu (Ātman / Brahman)</td>
+                        <td>Tánh Không Duyên khởi (Śūnyatā / Anātman)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cấu trúc Nhân - Quả</strong></td>
+                        <td>Đồng nhất ảo ảnh dưới lăng kính Māyā</td>
+                        <td>Phân định Avidyā (Nhân) & Vipallāsa (Quả)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thái độ Hiện sinh</strong></td>
+                        <td>Giải thoát đương sinh (Jīvanmukta)</td>
+                        <td>"Dạo cảnh mộng", Bồ-tát hạnh "Vô sở trụ"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Đích đến Tối hậu</strong></td>
+                        <td>Giọt nước hòa nhập tuyệt đối biển Brahman</td>
+                        <td>"Thuyền mộng qua sông mộng", tự tại hiện tiền</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 2 -->
+        <h2>2. Ý Nghĩa Triết Học Và Bài Học Nhân Sinh Của Sự Thức Tỉnh Tâm Linh Đối Với Con Người Hiện Đại</h2>
+        <div class="insight-box">
+            <p>
+                <strong>Tháo gỡ Khủng hoảng và Lo âu Hiện sinh:</strong> Con người đương đại thường đối mặt với căng thẳng tâm lý, sự bất an và nỗi sợ cô đơn trước nhịp sống gấp gáp. Tuệ giác quán chiếu “Gá thân mộng, Dạo cảnh mộng” giúp cá nhân buông xả gánh nặng ngã chấp và pháp chấp, nhìn nhận mọi thăng trầm vinh nhược như một cuộc dạo chơi thong dong, kiến tạo sự bình an nội tại sâu thẳm [22, 23, 25].
+            </p>
+            <p>
+                <strong>Liệu pháp Quản trị Cảm xúc "Biết vọng không theo":</strong> Tông chỉ "Biết được mộng" do Thiền sư Thích Thanh Từ trao lại đóng vai trò như một liệu pháp nhận thức đỉnh cao. Trước những bão suy nghĩ hay cảm xúc tiêu cực (giận hờn, tham ái, lo âu), cá nhân không cần đè nén hay tranh đấu, mà chỉ cần xoay nhận thức lại chiếu soi nhận diện đơn thuần; ngay lập tức mộng niệm tự vỡ tan, cất lên nụ "Cười vỡ mộng" tháo gỡ mọi trói buộc tâm lý [22, 23, 24, 25].
+            </p>
+            <p style="margin-bottom: 0;">
+                <strong>Nghệ thuật Sống Dấn thân Phụng sự Vô sở trụ:</strong> Nụ cười “Cười vỡ mộng” và tinh thần "Ghi lời mộng, Nhắn khách mộng" truyền cảm hứng cho một phong cách sống tích cực: Dấn thân làm việc, cống hiến hết lòng cho cộng đồng, nhưng giữ tâm thức hoàn toàn Vô sở trụ (theo Kinh Kim Cang)—không vướng kẹt vào danh lợi hay ngã mạn thế gian, sống tự do và tự tại ngay giữa lòng cõi thực [22, 23, 25].
+            </p>
+        </div>
+
+        <!-- 3 -->
+        <h2>3. Lời kết</h2>
+        <p>
+            Tóm lại, cả trải nghiệm ngộ nhập Mokṣa của Śaṅkarācārya và trải nghiệm Tỉnh cơn mộng qua bài kệ “Mộng” của Thiền sư Thích Thanh Từ đều đại diện cho những đỉnh cao hiện sinh luận và tâm lý học giải thoát phương Đông. Nếu Advaita Vedānta mượn Trí tuệ Bất nhị để đưa tâm thức trở về hòa nhập với Đấng Đại ngã vĩnh cửu (Nirguṇa Brahman), thì bài kệ “Mộng” của Thiền sư Thích Thanh Từ lại đại diện cho bản sắc Thiền học Trúc Lâm Yên Tử—dung dị, trực tiếp, đứng vững trên tinh thần Tánh Không Vô ngã (Śūnyatā / Anātman) và thắm đượm tinh thần phụng sự dấn thân. Qua bài kệ, Thiền sư đã trao lại cho mỗi người một chiếc chìa khóa Tánh giác chiếu soi, để ai cũng có thể tháo gỡ cơn mộng sinh tử ngàn đời, cất lên nụ cười “Cười vỡ mộng” và thong dong bước đi tự do, an lạc ngay giữa cõi đời hiện tại.
+        </p>
+
+        <!-- Footnotes -->
+        <div class="footnotes-section">
+            <div class="footnotes-title">CHÚ THÍCH & TRÍCH DẪN NGUỒN (FOOTNOTES CHO PHẦN KẾT BÀI - SƯỜN BÀI 12)</div>
+            <ul class="footnotes-list">
+                <li data-number="22">Śaṅkarācārya, <em>Vivekacūḍāmaṇi</em>, Kārikā 230–255; đối chiếu bài giảng "3. Buổi học ngày 21-9-2026.mp3" & "2. Buổi 2 (ngày 18-01-2026).mp3" (Tóm lược khái niệm Mokṣa, trạng thái Jīvanmukta và sự nhận ra Aham Brahmāsmi).</li>
+                <li data-number="23">Thiền sư Thích Thanh Từ (1997), <em>Bí quyết tu thiền</em>, NXB Tôn Giáo, Hà Nội, tr. 35–48; đối chiếu bài giảng "1. Buổi 1 (18-01-2026).mp3" (Tánh giác chiếu soi và công phu nhận diện "Biết được mộng" / "Biết vọng không theo").</li>
+                <li data-number="24">Thích Chơn Thiện (1999), <em>Pāli Phật học Đại cương</em>, NXB Tôn Giáo, Hà Nội, tr. 84–96; đối chiếu bài giảng "4b. Buổi học ngày 23-9-2026.mp3" & "3. Buổi 3 (ngày 31-3-2026).mp3" (Phân định ranh giới giữa Vô minh Avidyā làm nhân gốc ngầm rỉ Mūla-kāraṇa và Điên đảo vọng tưởng Vipallāsa làm quả sinh khởi Phala; phê bình việc đồng nhất hai khái niệm dẫn đến Hữu quả luận Sātkāryavāda).</li>
+                <li data-number="25">Thiền sư Thích Thanh Từ (2005), <em>Thiền sư Việt Nam</em>, NXB Tôn Giáo, Hà Nội, tr. 120–125; đối chiếu bài giảng "3. Buổi học ngày 21-9-2026.mp3" (Bản sắc Thiền Trúc Lâm Yên Tử và ý nghĩa nụ cười ngộ nhập "Cười vỡ mộng").</li>
+                <li data-number="26">Viện Triết học (2004), <em>Lịch sử Triết học Phương Đông</em>, NXB Chính trị Quốc gia, Hà Nội, tr. 335–340; đối chiếu bài giảng "1. Buổi 1 (18-01-2026).mp3" & "2. Buổi học ngày 16-9-2026.mp3" (Ý nghĩa hiện sinh luận của sự thức tỉnh tâm linh trong đời sống hiện đại).</li>
+            </ul>
+        </div>
+
+        <!-- IV. TÀI LIỆU THAM KHẢO -->
+        <div class="references-section">
+            <h1>IV. TÀI LIỆU THAM KHẢO</h1>
+
+            <div class="ref-category">
+                <div class="ref-category-title">1. Bài giảng & Hồ sơ Học thuật Chuyên ngành (Nguồn Nội dung Giảng dạy)</div>
+                <ul class="ref-list">
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "1. Buổi 1 (18-01-2026).mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "2. Buổi 2 (ngày 18-01-2026).mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "2. Buổi học ngày 16-9-2026.mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "3. Buổi 3 (ngày 31-3-2026).mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "3. Buổi học ngày 21-9-2026.mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "4a. Buổi học ngày 23-9-2026.mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "4b. Buổi học ngày 23-9-2026.mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "5. Buổi 5 (7-4-2026).mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "6. Buổi 6 (8-4-2026).mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "7. Buổi 7 (14-4-2026).mp3", Học viện Phật giáo.</li>
+                    <li>Bài giảng Chuyên đề Triết học Ấn Độ (2026), "8. Buổi 8 (16-4-2026).mp3", Học viện Phật giáo.</li>
+                </ul>
+            </div>
+
+            <div class="ref-category">
+                <div class="ref-category-title">2. Văn học Thiền học & Kinh điển Phật giáo</div>
+                <ul class="ref-list">
+                    <li>Thiền sư Thích Thanh Từ (1980), Bài kệ "Mộng", khắc tại Thiền viện Chân Không, Bà Rịa - Vũng Tàu (sáng tác tháng 7/1980).</li>
+                    <li>Thiền sư Thích Thanh Từ (1997), <em>Bí quyết tu thiền</em>, NXB Tôn Giáo, Hà Nội.</li>
+                    <li>Thiền sư Thích Thanh Từ (2005), <em>Thiền sư Việt Nam</em>, NXB Tôn Giáo, Hà Nội.</li>
+                    <li>Thích Minh Châu (dịch) (2012), <em>Kinh Trung Bộ (Majjhima Nikāya)</em>, Tập I & II, NXB Tôn Giáo, Hà Nội.</li>
+                    <li>Thích Thanh Từ (giảng giải) (2008), <em>Kinh Kim Cang Bát Nhã Giảng Giải</em>, NXB Tôn Giáo, Hà Nội.</li>
+                </ul>
+            </div>
+
+            <div class="ref-category">
+                <div class="ref-category-title">3. Kinh điển & Tác phẩm Triết học Ấn Độ (Advaita Vedānta & Trải nghiệm Mokṣa)</div>
+                <ul class="ref-list">
+                    <li>Śaṅkarācārya, <em>Brahmasūtra-bhāṣya</em> (Chú giải Kinh Brahma), bản dịch tiếng Anh của Swami Gambhirananda (1965), <em>Brahma Sutra Bhasya of Shankaracharya</em>, Advaita Ashrama, Kolkata.</li>
+                    <li>Śaṅkarācārya, <em>Vivekacūḍāmaṇi</em> (Trí tuệ minh châu kim cương), bản dịch tiếng Anh của Swami Madhavananda (1921), Advaita Ashrama, Kolkata.</li>
+                    <li>Swami Nikhilananda (trans.) (1949), <em>The Mandukya Upanishad with Gaudapada's Karika and Sankara's Commentary</em>, Sri Ramakrishna Math, Chennai.</li>
+                    <li>Radhakrishnan, S. (1929/1999), <em>Indian Philosophy</em> (Vol. 1 & Vol. 2), Oxford University Press, New Delhi.</li>
+                </ul>
+            </div>
+
+            <div class="ref-category">
+                <div class="ref-category-title">4. Sách Chuyên khảo & Giáo trình Nghiên cứu</div>
+                <ul class="ref-list">
+                    <li>Lê Xuân Khoa (1972), <em>Nhập môn Triết học Ấn Độ</em>, NXB Trung tâm Học liệu Bộ Giáo dục, Sài Gòn.</li>
+                    <li>Thích Chơn Thiện (1999), <em>Pāli Phật học Đại cương</em>, NXB Tôn Giáo, Hà Nội.</li>
+                    <li>Thích Quảng Độ (1975/2002), <em>Triết học Ấn Độ</em>, Tập I & II, NXB Tôn Giáo, Hà Nội.</li>
+                    <li>Viện Triết học (2004), <em>Lịch sử Triết học Phương Đông</em>, NXB Chính trị Quốc gia, Hà Nội.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
